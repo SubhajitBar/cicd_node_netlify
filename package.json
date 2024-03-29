@@ -6,7 +6,6 @@
   "type": "module",
   "scripts": {
     "test": "mocha app.test.js",
-    "dev": "nodemon server.js",
     "start": "node server.js"
   },
   "author": "",
