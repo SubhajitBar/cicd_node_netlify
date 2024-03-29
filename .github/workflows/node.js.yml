@@ -7,8 +7,6 @@ on:
   push:
     branches: ["main"]
 
-env:
-  BRANCH_NAME: ${{ github.ref_name }}
 
 jobs:
   test:
@@ -31,10 +29,7 @@ jobs:
 
       - name: Install Dependencies
         run: npm ci
-
-      - name: Install Netlify
-        run: npm install netlify-cli@17.10.1 -g
-
+        
       - run: |
           cd ./config
           touch config.env
@@ -51,13 +46,13 @@ jobs:
     needs: [test] #Our test must pass in order to run deploy job
     runs-on: ubuntu-latest
 
-    steps:        
-      - name: Deploy to Netlify
-        id: cicd_node_netlify
-        run: |
-          prod_flag=""
-          if [ "$BRANCH_NAME" = "main" ]; then prod_flag="--prod"; fi
-          netlify deploy \
-            --site ${{ secrets.NETLIFY_SITE_ID }} \
-            --auth ${{ secrets.NETLIFY_API_TOKEN }} \
-            $prod_flag 
+    steps:
+      - name: Install Railway
+        run: npm i -g @railway/cli
+
+      - name: Deploy to Railway
+        # Only run this step if the branch is main
+        if: github.ref == 'refs/heads/main'
+        run: railway up
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
