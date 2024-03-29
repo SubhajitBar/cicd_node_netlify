@@ -52,11 +52,11 @@ jobs:
 
       - name: Install Nixpacks
         run: |
-          curl -sSL https://nixpacks.com/install.sh | bash
+          brew install railwayapp/tap/nixpacks
           nixpacks build . --name my-app \
                            --pkgs "nodejs-20_x npm" 
                            --install-cmd "install ci" 
-                           -s "npm run start"
+                           --start-cmd "npm run start"
 
           docker run -it my-app
           
