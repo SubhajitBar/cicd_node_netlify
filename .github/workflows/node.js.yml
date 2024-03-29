@@ -54,7 +54,7 @@ jobs:
         run: |
           curl -sSL https://nixpacks.com/install.sh | bash
           nixpacks build . --name my-app \
-                           --pkgs nodejs_18, npm-9_x
+                           --pkgs "nodejs_18 npm-9_x"
                            --install-cmd "npm ci"
                            --start-cmd "npm run start"
           docker run -it my-app
