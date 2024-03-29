@@ -5,7 +5,7 @@ import request from "supertest";
 
 describe('Test node endpoint', () => {
     it('Hit TestNode Endpoint', async () => {
-        const response = await request(app).get('/testNode');
+        const response = await request(app).get('/test');
         expect(response.status).to.equal(200);
         expect(response.text).to.equal("Test node endpoint hit successfully with Port:5000")
     });

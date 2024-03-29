@@ -18,7 +18,7 @@ app.get("/", (req, res) => res.send(
     )
 );
 
-app.get("/testNode", (req, res)=>{
+app.get("/test", (req, res)=>{
     res.status(200).send(`Test node endpoint hit successfully with Port:${process.env.PORT}`);
 })
 
