@@ -53,8 +53,6 @@ jobs:
       - name: Deploy to Railway
         # Only run this step if the branch is main
         if: github.ref == 'refs/heads/main'
-        run: |
-          railway up
-          --service ${{ secrets.RAILWAY_SERVICE }}
+        run: railway up --service ${{ secrets.RAILWAY_SERVICE }}
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
