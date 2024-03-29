@@ -56,7 +56,7 @@ jobs:
           nixpacks build . --name my-app \
                            --pkgs "nodejs_18 npm-9_x"
                            --install-cmd "npm ci"
-                           --start-cmd "npm run start"
+                           --start-cmd "npm start"
           docker run -it my-app
           
       - name: Deploy to Railway
