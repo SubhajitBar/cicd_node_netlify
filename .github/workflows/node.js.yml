@@ -55,7 +55,8 @@ jobs:
           curl -sSL https://nixpacks.com/install.sh | bash
           nixpacks build . --name my-app \
                            --pkgs "nodejs_18 npm-9_x"
-                           --start-cmd "node server.js"
+                           --build-cmd ./build.sh 
+                           --start-cmd "npm run start"
           docker run -it my-app
           
       - name: Deploy to Railway
