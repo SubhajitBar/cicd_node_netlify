@@ -52,7 +52,7 @@ jobs:
 
       - name: Install Nixpacks
         run: |
-          brew install railwayapp/tap/nixpacks
+          curl -fsSL https://raw.githubusercontent.com/railwayapp/homebrew-tap/master/install.sh
           nixpacks build . --name my-app \
                            --pkgs "nodejs-20_x npm" 
                            --install-cmd "install ci" 
