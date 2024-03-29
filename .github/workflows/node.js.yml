@@ -53,10 +53,6 @@ jobs:
       - name: Install Nixpacks
         run: |
           curl -sSL https://nixpacks.com/install.sh | bash
-          nixpacks build . --name my-app \
-                           --pkgs nodejs_18, npm \
-                           --start-cmd "npm run start"
-          docker run -it my-app
           
       - name: Deploy to Railway
         # Only run this step if the branch is main
