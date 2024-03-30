@@ -9,8 +9,8 @@ on:
 
 
 jobs:
-  test:
-    name: Test
+  test-and-deploy:
+    name: Test and Deploy
     runs-on: ubuntu-latest
 
     strategy:
@@ -50,7 +50,7 @@ jobs:
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
       
-      - name: Install Nixpacks
+      - name: Install Nixpacks and Build Docker Image
         run: |
           curl -sSL https://nixpacks.com/install.sh | bash
           nixpacks build . --name my-app \
