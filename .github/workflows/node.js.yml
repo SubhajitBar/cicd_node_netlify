@@ -49,13 +49,6 @@ jobs:
     steps:
       - name: Install Railway
         run: npm i -g @railway/cli
-
-      - name: Install Nixpacks
-        run: |
-          curl -sSL https://nixpacks.com/install.sh | bash
-          nixpacks build . --name my-app \
-                           --pkgs "nodejs_18" \
-                           --start-cmd "npm run start" 
           
       - name: Deploy to Railway
         # Only run this step if the branch is main
