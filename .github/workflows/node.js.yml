@@ -39,13 +39,7 @@ jobs:
         run: |
           npm run
           npm test
-          
-  deploy:
-    name: Deploy
-    needs: [test] #Our test must pass in order to run deploy job
-    runs-on: ubuntu-latest
-
-    steps:        
+               
       - name: Install Railway
         run: npm i -g @railway/cli
           
@@ -55,7 +49,6 @@ jobs:
         run: railway up --service ${{ secrets.RAILWAY_SERVICE }}
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-
       
       - name: Install Nixpacks
         run: |
