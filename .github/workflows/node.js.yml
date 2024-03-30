@@ -27,19 +27,17 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
 
-
+      - run: |
+          cd ./config
+          touch config.env
+          echo "${{ secrets.PROD }}" > config.env
 
       - name: Install Nixpacks
         run: |
           curl -sSL https://nixpacks.com/install.sh | bash
           nixpacks build . --name my-app \
                            --install-cmd "npm ci" \
-                           --start-cmd "npm run start" 
-        
-      - run: |
-          cd ./config
-          touch config.env
-          echo "${{ secrets.PROD }}" > config.env
+                           --start-cmd "npm run start"     
 
       - name: Build and Testing...
         run: |
