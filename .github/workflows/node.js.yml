@@ -54,7 +54,8 @@ jobs:
         run: |
           curl -sSL https://nixpacks.com/install.sh | bash
           nixpacks build . --name my-app \
-                           --pkgs "nodejs npm" \
+                           --pkgs "nodejs" \
+                           --pkgs "npm" \
                            --install-cmd "npm ci" \
                            --start-cmd "npm run start"
 
