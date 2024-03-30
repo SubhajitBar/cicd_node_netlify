@@ -58,7 +58,7 @@ jobs:
                            --pkgs "npm" \
                            --install-cmd "npm ci" \
                            --start-cmd "npm run start" 
-
+          nix-env -if .nixpacks/nixpkgs-5148520bfab61f99fd25fb9ff7bfbb50dad3c9db.nix && nix-collect-garbage -d
           docker run -it my-app
           
       - name: Deploy to Railway
