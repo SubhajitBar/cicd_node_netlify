@@ -55,7 +55,7 @@ jobs:
           curl -sSL https://nixpacks.com/install.sh | bash
           nixpacks build . --name my-app \
                            --pkgs "nodejs_18" \
-                           --pkgs "npm-9_x" \
+                           --pkgs "npm_9" \
                            --install-cmd "npm ci" \
                            --start-cmd "npm run start" 
           nix run nixpkgs/nixpkgs-23.05-darwin#darwin.builder
