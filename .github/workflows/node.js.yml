@@ -55,7 +55,7 @@ jobs:
           curl -sSL https://nixpacks.com/install.sh | bash
           nixpacks build . --name my-app \
                            --pkgs "nodejs_18" \
-                           --install-cmd "npm ci" \
+                           --install-cmd "npm install" \
                            --start-cmd "npm run start" 
                            
           docker run -it my-app
