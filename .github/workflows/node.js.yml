@@ -27,8 +27,15 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
 
-      - name: Install Dependencies
-        run: npm ci
+
+
+      - name: Install Nixpacks
+        run: |
+          curl -sSL https://nixpacks.com/install.sh | bash
+          nixpacks build . --name my-app \
+                           --pkgs "nodejs_18" \
+                           --install-cmd "npm ci" \
+                           --start-cmd "npm run start" 
         
       - run: |
           cd ./config
